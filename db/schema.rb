@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20140501145826) do
   enable_extension "plpgsql"
 
   create_table "books", force: true do |t|
-    t.string   "title"
+    t.string   "title",      null: false
     t.string   "author"
     t.datetime "created_at"
     t.datetime "updated_at"
