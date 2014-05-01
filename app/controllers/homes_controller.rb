@@ -8,6 +8,8 @@ class HomesController < ApplicationController
   private
 
   def goto_dashboard
-    if signed_in? then redirect_to dashboard_path end
+    if signed_in?
+      redirect_to dashboard_path
+    end
   end
 end
