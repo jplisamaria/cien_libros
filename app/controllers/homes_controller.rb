@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
   skip_before_action :require_login
-  before_action :goto_dashboard, if: :signed_in?
+  before_action :goto_dashboard
 
   def show
   end
@@ -8,6 +8,8 @@ class HomesController < ApplicationController
   private
 
   def goto_dashboard
-    redirect_to dashboard_path
+    if signed_in?
+      redirect_to dashboard_path
+    end
   end
 end
