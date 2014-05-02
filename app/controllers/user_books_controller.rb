@@ -4,6 +4,4 @@ class UserBooksController < ApplicationController
     @user_book = UserBook.new
   end
 
-  def create
-  end
 end
