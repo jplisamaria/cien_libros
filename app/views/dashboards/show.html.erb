@@ -1,1 +1,4 @@
 <h1>Welcome <%= current_user.username %>! </h1>
+
+<p> You have read <%= @count %> books. </p>
+<%= link_to "Add a reading log entry", user_books_path %>
