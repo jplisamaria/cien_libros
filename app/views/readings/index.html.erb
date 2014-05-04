@@ -1,0 +1,36 @@
+<h1> Your Reading Log</h1>
+
+<h3>Add a new book</h3>
+<%= simple_form_for @book do |form| %> 
+  <%= form.input :title %>
+  <%= form.input :author %>
+  <%= form.button :submit, "Add new book" %>
+<% end %>
+
+<h3>Add a new reading entry</h3>
+<%= simple_form_for @reading do |form| %>
+  <%= form.input :title, 
+    collection: current_user.book_list, 
+    include_blank: false%>
+  <%= form.input :amount_read %>
+  <%= form.button :submit, "Add a new log" %>
+<% end %>
+
+<h3>Your reading log</h3>
+<table border="1">
+  <tr>
+    <td><b>Log Entry</b></td>
+    <td><b>Book Title</b></td>
+    <td><b>Amount Read</b></td>
+    <td><b>Date</b></td>
+  </tr>
+  <% @readings.each_with_index do |reading, index| %>
+    <tr>
+      <td><%= (@readings.count - index) %></td>
+      <td><%= reading.book_title %></td>
+      <td><%= reading.amount_read %></td>
+      <td><%= reading.created_at.strftime("%B %d, %Y") %></td>
+    </tr>
+    <br>
+  <% end %>
+</table>
