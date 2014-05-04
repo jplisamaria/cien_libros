@@ -4,5 +4,4 @@ class ReadingsController < ApplicationController
     @reading = Reading.new
  #   @user_books = UserBook.find(id: :current_user.id)
   end
-
 end
