@@ -3,4 +3,8 @@ class Reading < ActiveRecord::Base
   has_one :book, through: :user_book
 
   attr_accessor :title
+
+  def book_title
+    user_book.book.title
+  end
 end

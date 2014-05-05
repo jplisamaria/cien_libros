@@ -2,6 +2,8 @@ class ReadingsController < ApplicationController
   def index
     @book = Book.new
     @reading = Reading.new
+    @readings = current_user.readings.order(created_at: :desc)
+
   end
 
   def create
