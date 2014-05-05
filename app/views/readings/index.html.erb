@@ -1,4 +1,4 @@
-<h1> Reading Log</h1>
+<h1> Your Reading Log</h1>
 
 <h3>Add a new book</h3>
 <%= simple_form_for @book do |form| %> 
@@ -7,4 +7,14 @@
     <%= form.button :submit, "Add new book" %>
 <% end %>
 
+<h3>Add a new reading entry</h3>
+<%= simple_form_for @reading do |form| %>
+  <%= form.input :title, 
+    collection: current_user.book_list, 
+    include_blank: false%>
+  <%= form.input :amount_read %>
+  <%= form.button :submit, "Add a new log" %>
+<% end %>
 
+<h3>Your reading log</h3>
+  

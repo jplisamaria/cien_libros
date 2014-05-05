@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resources :user_books, only: [:new, :create, :index]
   resources :books, only: [:create]
-  resources :readings, only: [:index]
+  resources :readings, only: [:index, :create]
 end

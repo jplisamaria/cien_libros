@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
   has_many :user_books
   has_many :books, through: :user_books
   has_many :readings, through: :user_books
+
+  def book_list
+    self.books.pluck(:title)
+  end
 end

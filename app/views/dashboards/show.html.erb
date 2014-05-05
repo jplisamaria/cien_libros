@@ -4,8 +4,8 @@
 <p> 
   You have read the following books:
   <br>
-  <% current_user.books.each do |book| %>
-    <%= book.title %> 
+  <% current_user.book_list.each do |title| %>
+    <%= title %> 
     <br>
   <% end %>
 </p>
