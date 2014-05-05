@@ -9,7 +9,7 @@ class ReadingsController < ApplicationController
     title = params[:reading][:title]
     book = Book.find_by(title: title)
     user_book_id = UserBook.find_by(
-      book_id: book.id, 
+      book_id: book.id,
       user_id: current_user.id
     ).id
     Reading.create(reading_params.merge(user_book_id: user_book_id))

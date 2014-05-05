@@ -9,6 +9,6 @@ class Reading < ActiveRecord::Base
   end
 
   def self.newest_first
-    self.order(created_at: :desc)
+    order(created_at: :desc)
   end
 end
