@@ -2,7 +2,6 @@ class ReadingsController < ApplicationController
   def index
     @book = Book.new
     @reading = Reading.new
-    
   end
 
   def create

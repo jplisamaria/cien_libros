@@ -7,6 +7,6 @@ class User < ActiveRecord::Base
   has_many :readings, through: :user_books
 
   def book_list
-    self.books.pluck(:title)
+    books.pluck(:title)
   end
 end
