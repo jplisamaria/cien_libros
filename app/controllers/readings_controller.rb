@@ -2,16 +2,17 @@ class ReadingsController < ApplicationController
   def index
     @book = Book.new
     @reading = Reading.new
-    @readings = current_user.readings.order(created_at: :desc)
+    @readings = current_user.readings.newest_first
   end
 
   def create
     title = params[:reading][:title]
     book = Book.find_by(title: title)
-    user_book = UserBook.find_by(book_id: book.id, user_id: current_user.id)
-    user_book_id = user_book.id
-    reading = Reading.create(reading_params)
-    reading.update(user_book_id: user_book_id)
+    user_book_id = UserBook.find_by(
+      book_id: book.id, 
+      user_id: current_user.id
+    ).id
+    Reading.create(reading_params.merge(user_book_id: user_book_id))
     redirect_to readings_path
   end
 

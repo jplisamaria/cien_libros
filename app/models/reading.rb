@@ -7,4 +7,8 @@ class Reading < ActiveRecord::Base
   def book_title
     user_book.book.title
   end
+
+  def self.newest_first
+    self.order(created_at: :desc)
+  end
 end
