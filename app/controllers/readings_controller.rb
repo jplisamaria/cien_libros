@@ -2,7 +2,7 @@ class ReadingsController < ApplicationController
   def index
     @book = Book.new
     @reading = Reading.new
-    @readings = current_user.readings.newest_first
+    @readings = current_profile.readings.newest_first
   end
 
   def create

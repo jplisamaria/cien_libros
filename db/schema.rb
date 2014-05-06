@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140503134846) do
+ActiveRecord::Schema.define(version: 20140505180246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(version: 20140503134846) do
 
   add_index "readings", ["user_book_id"], name: "index_readings_on_user_book_id", using: :btree
 
+  create_table "student_profiles", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "grade_last_year"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "user_books", force: true do |t|
     t.integer  "book_id"
     t.integer  "user_id"
@@ -43,11 +51,14 @@ ActiveRecord::Schema.define(version: 20140503134846) do
   add_index "user_books", ["user_id"], name: "index_user_books_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email"
     t.string   "password_digest", null: false
     t.string   "username",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "profile_id"
+    t.string   "profile_type"
   end
+
+  add_index "users", ["profile_id", "profile_type"], name: "index_users_on_profile_id_and_profile_type", using: :btree
 
 end

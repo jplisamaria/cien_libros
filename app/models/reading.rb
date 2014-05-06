@@ -1,5 +1,5 @@
 class Reading < ActiveRecord::Base
-  belongs_to :user_book
+  belongs_to :user_book, dependent: :destroy
   has_one :book, through: :user_book
 
   attr_accessor :title
