@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   resources :user_books, only: [:new, :create, :index]
   resources :books, only: [:create]
   resources :readings, only: [:index, :create]
-  
+
 end
