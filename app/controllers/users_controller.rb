@@ -29,13 +29,13 @@ class UsersController < ApplicationController
   end
 
   def profile_class
-    if valid_profile_class?
+    if profile_class_ok
       profile = params[:user][:profile].constantize
       profile.new
     end
   end
 
-  def valid_profile_class?
+  def profile_class_ok
     %w(StudentProfile).include? params[:user][:profile]
   end
 
