@@ -55,11 +55,11 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     minitest (5.3.3)
-    monban (0.0.11)
+    monban (0.0.13)
       bcrypt
       rails
       warden
-    multi_json (1.9.3)
+    multi_json (1.10.0)
     pg (0.17.1)
     polyglot (0.3.4)
     pry (0.9.12.6)
