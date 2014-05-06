@@ -25,5 +25,4 @@ class StudentProfilesController < ApplicationController
   def find_student_profile
     StudentProfile.find(params[:id])
   end
-
 end

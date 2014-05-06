@@ -1,8 +1,6 @@
 class DashboardsController < ApplicationController
   def show
     @dashboard = dashboard
-#    @count = current_user.books.count
-    
   end
 
   private
@@ -14,5 +12,4 @@ class DashboardsController < ApplicationController
   def dashboard_class
     "#{current_profile.class}Dashboard".constantize
   end
-
 end
