@@ -4,5 +4,4 @@ class StudentBooksController < ApplicationController
     @student_book = StudentBook.new
     redirect_to readings_path
   end
-
 end
