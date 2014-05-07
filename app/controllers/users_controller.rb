@@ -8,8 +8,9 @@ class UsersController < ApplicationController
   def create
     @user = sign_up(user_params)
     if @user.valid?
+      sign_in(@user)
       @student_profile = @user.profile
-      redirect_to_profile
+      redirect_to_create_profile
     else
       render :new
     end
@@ -35,7 +36,7 @@ class UsersController < ApplicationController
     %w(StudentProfile).include? params[:user][:profile]
   end
 
-  def redirect_to_profile
+  def redirect_to_create_profile
     if @user[:profile_type] == 'StudentProfile'
       redirect_to edit_user_student_profile_path(@user, @student_profile)
     else
