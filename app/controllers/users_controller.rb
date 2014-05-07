@@ -25,10 +25,6 @@ class UsersController < ApplicationController
   end
 
   def user_profile
-    profile_class
-  end
-
-  def profile_class
     if profile_class_ok?
       profile = params[:user][:profile].constantize
       profile.new
