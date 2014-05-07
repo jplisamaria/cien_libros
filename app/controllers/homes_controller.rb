@@ -8,8 +8,9 @@ class HomesController < ApplicationController
   private
 
   def goto_dashboard
-    if signed_in?
-      redirect_to dashboard_path
+    if signed_in? && current_user[:profile_type] == 'StudentProfile'
+      redirect_to student_profile_dashboard_path
     end
   end
+
 end
