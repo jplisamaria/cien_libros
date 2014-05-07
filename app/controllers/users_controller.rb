@@ -2,8 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :require_login
 
   def new
-      @user = User.new
-    end
+    @user = User.new
   end
 
   def create
@@ -43,9 +42,5 @@ class UsersController < ApplicationController
     else
       redirect_to root_path
     end
-  end
-
-  def redirect_to_dashboard
-    redirect_to dashboards_path
   end
 end
