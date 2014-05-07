@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       :username,
       :password).
       merge(profile: user_profile)
-  end 
+  end
 
   def user_profile
     if profile_class_ok?
@@ -49,4 +49,3 @@ class UsersController < ApplicationController
     redirect_to dashboards_path
   end
 end
-
