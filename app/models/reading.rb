@@ -1,11 +1,11 @@
 class Reading < ActiveRecord::Base
-  belongs_to :user_book, dependent: :destroy
-  has_one :book, through: :user_book
+  belongs_to :student_book, dependent: :destroy
+  has_one :book, through: :student_books
 
   attr_accessor :title
 
   def book_title
-    user_book.book.title
+    student_book.book.title
   end
 
   def self.newest_first

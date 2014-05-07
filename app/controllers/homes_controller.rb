@@ -12,5 +12,4 @@ class HomesController < ApplicationController
       redirect_to student_profile_dashboard_path
     end
   end
-
 end

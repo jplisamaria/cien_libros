@@ -1,9 +1,9 @@
 class BooksController < ApplicationController
   def create
     book = Book.find_or_create_by(book_params)
-    UserBook.find_or_create_by(
+    StudentBook.find_or_create_by(
       book_id: book.id,
-      user_id: current_user.id
+      student_profile_id: current_profile.id
     )
     redirect_to readings_path
   end

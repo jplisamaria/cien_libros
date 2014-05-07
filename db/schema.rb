@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140505180246) do
+ActiveRecord::Schema.define(version: 20140507204154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,13 +24,23 @@ ActiveRecord::Schema.define(version: 20140505180246) do
   end
 
   create_table "readings", force: true do |t|
-    t.integer  "user_book_id"
+    t.integer  "student_book_id"
     t.string   "amount_read"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "readings", ["user_book_id"], name: "index_readings_on_user_book_id", using: :btree
+  add_index "readings", ["student_book_id"], name: "index_readings_on_student_book_id", using: :btree
+
+  create_table "student_books", force: true do |t|
+    t.integer  "book_id"
+    t.integer  "student_profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "student_books", ["book_id"], name: "index_student_books_on_book_id", using: :btree
+  add_index "student_books", ["student_profile_id"], name: "index_student_books_on_student_profile_id", using: :btree
 
   create_table "student_profiles", force: true do |t|
     t.string   "first_name"
@@ -39,16 +49,6 @@ ActiveRecord::Schema.define(version: 20140505180246) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "user_books", force: true do |t|
-    t.integer  "book_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "user_books", ["book_id"], name: "index_user_books_on_book_id", using: :btree
-  add_index "user_books", ["user_id"], name: "index_user_books_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "password_digest", null: false

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :student_profiles, only: [:edit, :update]
   end
 
-  resources :user_books, only: [:new, :create, :index]
+  resources :student_books, only: [:new, :create, :index]
   resources :books, only: [:create]
   resources :readings, only: [:index, :create]
 
