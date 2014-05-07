@@ -7,30 +7,36 @@
   <%= form.button :submit, "Add new book" %>
 <% end %>
 
-<h3>Add a new reading entry</h3>
-<%= simple_form_for @reading do |form| %>
-  <%= form.input :title, 
-    collection: current_user.book_list, 
-    include_blank: false%>
-  <%= form.input :amount_read %>
-  <%= form.button :submit, "Add a new log" %>
-<% end %>
+<% if current_profile.student_books.any? %>
+  <h3>Add a new reading entry</h3>
+  <%= simple_form_for @reading do |form| %>
+    <%= form.input :title, 
+      collection: current_profile.book_list, 
+      include_blank: false 
+    %>
+    <%= form.input :amount_read %>
+    <%= form.button :submit, "Add a new log" %>
+  <% end %> 
+<% end %> 
 
-<h3>Your reading log</h3>
-<table border="1">
-  <tr>
-    <td><b>Log Entry</b></td>
-    <td><b>Book Title</b></td>
-    <td><b>Amount Read</b></td>
-    <td><b>Date</b></td>
-  </tr>
-  <% @readings.each_with_index do |reading, index| %>
+<% if current_profile.readings.any? %>
+  <h3>Your reading log</h3>
+  <table border="1">
     <tr>
-      <td><%= (@readings.count - index) %></td>
-      <td><%= reading.book_title %></td>
-      <td><%= reading.amount_read %></td>
-      <td><%= reading.created_at.strftime("%B %d, %Y") %></td>
+      <td><b>Log Entry</b></td>
+      <td><b>Book Title</b></td>
+      <td><b>Amount Read</b></td>
+      <td><b>Date</b></td>
     </tr>
-    <br>
-  <% end %>
-</table>
+    <% @readings.each_with_index do |reading, index| %>
+      <tr>
+        <td><%= (@readings.count - index) %></td>
+        <td><%= reading.book_title %></td>
+        <td><%= reading.amount_read %></td>
+        <td><%= reading.created_at.strftime("%B %d, %Y") %></td>
+      </tr>
+      <br>
+    <% end %>
+  </table>
+
+<% end %>

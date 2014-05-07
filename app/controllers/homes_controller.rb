@@ -9,7 +9,7 @@ class HomesController < ApplicationController
 
   def goto_dashboard
     if signed_in?
-      redirect_to dashboard_path
+      redirect_to [current_user.profile, :dashboard]
     end
   end
 end

@@ -8,11 +8,11 @@ class ReadingsController < ApplicationController
   def create
     title = params[:reading][:title]
     book = Book.find_by(title: title)
-    user_book_id = UserBook.find_by(
+    student_book_id = StudentBook.find_by(
       book_id: book.id,
-      user_id: current_user.id
+      student_profile_id: current_profile.id
     ).id
-    Reading.create(reading_params.merge(user_book_id: user_book_id))
+    Reading.create(reading_params.merge(student_book_id: student_book_id))
     redirect_to readings_path
   end
 
