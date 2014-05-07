@@ -2,14 +2,16 @@ class UsersController < ApplicationController
   skip_before_action :require_login
 
   def new
-    @user = User.new
+      @user = User.new
+    end
   end
 
   def create
     @user = sign_up(user_params)
     if @user.valid?
+      sign_in(@user)
       @student_profile = @user.profile
-      redirect_to_profile
+      redirect_to_create_profile
     else
       render :new
     end
@@ -22,7 +24,7 @@ class UsersController < ApplicationController
       :username,
       :password).
       merge(profile: user_profile)
-  end
+  end 
 
   def user_profile
     if profile_class_ok?
@@ -35,11 +37,16 @@ class UsersController < ApplicationController
     %w(StudentProfile).include? params[:user][:profile]
   end
 
-  def redirect_to_profile
+  def redirect_to_create_profile
     if @user[:profile_type] == 'StudentProfile'
       redirect_to edit_user_student_profile_path(@user, @student_profile)
     else
       redirect_to root_path
     end
   end
+
+  def redirect_to_dashboard
+    redirect_to dashboards_path
+  end
 end
+
