@@ -29,18 +29,18 @@ class UsersController < ApplicationController
   end
 
   def profile_class
-    if profile_class_ok
+    if profile_class_ok?
       profile = params[:user][:profile].constantize
       profile.new
     end
   end
 
-  def profile_class_ok
+  def profile_class_ok?
     %w(StudentProfile).include? params[:user][:profile]
   end
 
   def redirect_to_profile
-    if @user[:profile_type] = 'StudentProfile'
+    if @user[:profile_type] == 'StudentProfile'
       redirect_to edit_user_student_profile_path(@user, @student_profile)
     else
       redirect_to root_path
