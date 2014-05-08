@@ -9,5 +9,4 @@ class ApplicationController < ActionController::Base
     current_user.profile
   end
   helper_method :current_profile
-
 end
