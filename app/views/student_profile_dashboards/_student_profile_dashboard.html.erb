@@ -1,6 +1,6 @@
 <h2><%= current_user.username %>'s page </h2>
 
-<% if  @readings_left < 1 %>
+<% if  student_profile_dashboard.readings_left < 1 %>
   <p> CONGRATULATIONS!!  You've reached your goal! <p>
   <p> You have read <%= @readings_done %> books total. </p>
 
@@ -11,8 +11,8 @@
       <%= title %><br>
     <% end %>
   </p>
-  <p> You have read <%= @readings_done %> books total. </p>
-  <p> You have <%= @readings_left %> books to go.  </p>
+  <p> You have read <%= current_profile.readings_done %> books total. </p>
+  <p> You have <%= current_profile.readings_left %> books to go.  </p>
 
 
 <% else %>  
