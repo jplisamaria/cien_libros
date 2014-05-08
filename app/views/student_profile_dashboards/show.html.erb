@@ -1,14 +1,19 @@
 <h2><%= current_user.username %>'s page </h2>
 
 <% if current_profile.student_books.any? %>
+
   <p> 
     You have read the following titles:  <br>
     <% current_profile.book_list.each do |title| %>
       <%= title %><br>
     <% end %>
   </p>
-  <p> You have read <%= current_profile.readings.count %> books total. </p>
+
+  <p> You have read <%= @count %> books total. </p>
+  <p> You have <%= 100 - @count %> books to go.  </p>
+
 <% else %>
   <p> You haven't read any books yet. </p>
 <% end %>
+
 <%= link_to "Go to your reading log", readings_path %>
