@@ -36,12 +36,6 @@ class UsersController < ApplicationController
   end
 
   def redirect_to_create_profile
-    if @user[:profile_type] == 'StudentProfile'
-      redirect_to edit_user_student_profile_path(@user, @user.profile)
-    elsif @user[:profile_type] == 'ParentProfile'
-      redirect_to edit_user_parent_profile_path(@user, @user.profile)
-    else
-      redirect_to root_path
-    end
+    redirect_to [:edit, @user, @user.profile]
   end
 end

@@ -7,7 +7,11 @@ class StudentProfile < ActiveRecord::Base
   has_many :readings, through: :student_books
 
   GRADES = %w(k1 k2 1st 2nd 3rd 4th 5th 6th 7th 8th)
-  GOAL = 100
+  GOAL = 4
+
+  def goal_reached
+    readings.count >= GOAL
+  end
 
   def readings_left
     GOAL - readings_done
