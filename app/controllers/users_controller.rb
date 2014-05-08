@@ -9,7 +9,6 @@ class UsersController < ApplicationController
     @user = sign_up(user_params)
     if @user.valid?
       sign_in(@user)
-#      @student_profile = @user.profile
       redirect_to_create_profile
     else
       render :new
