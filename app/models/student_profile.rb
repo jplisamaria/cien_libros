@@ -1,6 +1,5 @@
 class StudentProfile < ActiveRecord::Base
   has_one :user, as: :profile, dependent: :destroy
-#  belongs_to :parent_profile
 
   has_many :student_books
   has_many :books, through: :student_books
@@ -9,7 +8,7 @@ class StudentProfile < ActiveRecord::Base
   GRADES = %w(k1 k2 1st 2nd 3rd 4th 5th 6th 7th 8th)
   GOAL = 4
 
-  def goal_reached
+  def goal_reached?
     readings.count >= GOAL
   end
 

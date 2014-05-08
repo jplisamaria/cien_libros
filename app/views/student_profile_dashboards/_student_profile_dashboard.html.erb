@@ -1,6 +1,6 @@
 <h2><%= current_user.username %>'s page </h2>
 
-<% if current_profile.goal_reached %>
+<% if current_profile.goal_reached? %>
   <p> CONGRATULATIONS!!  You've reached your goal! <p>
   <p> You have read <%= current_profile.readings_done %> books total. </p>
 
