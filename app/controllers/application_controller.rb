@@ -4,9 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include Monban::ControllerHelpers
   before_action :require_login
-  helper_method :current_profile
 
   def current_profile
     current_user.profile
   end
+  helper_method :current_profile
+
 end

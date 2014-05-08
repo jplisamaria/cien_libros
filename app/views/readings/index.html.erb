@@ -7,18 +7,19 @@
   <%= form.button :submit, "Add new book" %>
 <% end %>
 
-<% if current_profile.student_books.count > 0 %>
+<% if current_profile.student_books.any? %>
   <h3>Add a new reading entry</h3>
   <%= simple_form_for @reading do |form| %>
     <%= form.input :title, 
       collection: current_profile.book_list, 
-      include_blank: false%>
+      include_blank: false 
+    %>
     <%= form.input :amount_read %>
     <%= form.button :submit, "Add a new log" %>
   <% end %> 
 <% end %> 
 
-<% if current_profile.readings.count > 0 %>
+<% if current_profile.readings.any? %>
   <h3>Your reading log</h3>
   <table border="1">
     <tr>
