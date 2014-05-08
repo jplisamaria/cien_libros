@@ -1,5 +1,6 @@
 class StudentProfileDashboardsController < ApplicationController
   def show
-    @count = current_profile.readings.count
+    @readings_done = current_profile.readings.count
+    @readings_left = StudentProfileDashboard::GOAL - @readings_done
   end
 end
