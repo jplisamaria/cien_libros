@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :children, only: [:new, :create]
     resources :student_profiles, only: [:new, :create]
   end
-  
+
   resources :student_books, only: [:new, :create, :index]
   resources :books, only: [:create]
   resources :readings, only: [:index, :create]
