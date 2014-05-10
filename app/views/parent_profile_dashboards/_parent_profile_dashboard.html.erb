@@ -1,1 +1,4 @@
-<h2><%= current_user.username %>'s page </h2>
+<h2><%= current_user.username %>'s Dashboard </h2>
+
+<%= link_to "Your information", parent_profile_path(current_profile) %>
+
