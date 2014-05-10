@@ -9,9 +9,10 @@ Rails.application.routes.draw do
     resources :parent_profiles, only: [:edit, :update]
   end
   
+  # Research: should children and student profile be member routes?
   resources :parent_profiles, only: [:show]
-    resources :children, only: [:new, :create]
-    resources :student_profiles, only: [:new, :create]
+  resources :children, only: [:new, :create]
+  resources :student_profiles, only: [:new, :create]
 
   resources :student_books, only: [:new, :create, :index]
   resources :books, only: [:create]
