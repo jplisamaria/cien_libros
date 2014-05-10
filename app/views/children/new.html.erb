@@ -1,6 +1,6 @@
 <h2> Add a new child </h2>
 
-<%= form_for @student_profile do |form| %>
+<%= form_for [current_profile, @student_profile] do |form| %>
   <div>
     <%= form.label :first_name %>
     <%= form.text_field :first_name %>
