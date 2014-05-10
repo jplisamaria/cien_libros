@@ -50,6 +50,4 @@ class StudentProfilesController < ApplicationController
 #    check if current_user.profile = ParentProfile
     current_user
   end
-
-
 end
