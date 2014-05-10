@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   end
 
   def profile_class_ok?
-    %w(StudentProfile ParentProfile).include? params[:user][:profile]
+    %w(ParentProfile).include? params[:user][:profile]
   end
 
   def redirect_to_create_profile

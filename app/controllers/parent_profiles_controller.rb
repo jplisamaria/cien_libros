@@ -12,6 +12,11 @@ class ParentProfilesController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    @parent_profile = current_profile
+    @children = find_children
+  end
+
   private
 
   def parent_profile_params
@@ -21,6 +26,11 @@ class ParentProfilesController < ApplicationController
   end
 
   def find_parent_profile
+    #check who current_user is
     ParentProfile.find(params[:id])
+  end
+
+  def find_children
+    StudentProfile.where(parent_profile_id: @parent_profile.id)
   end
 end
