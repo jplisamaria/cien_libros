@@ -1,6 +1,5 @@
 <h2><%= current_user.username %>'s page </h2>
 
-<%= link_to "Add a child", new_parent_profile_child_path(current_user) %><br><br>
 <%= link_to "Add a student_profile", new_parent_profile_student_profile_path(current_profile) %>
 <p> These are your children: </p>
   <% @children.each do |child| %>
