@@ -1,6 +1,11 @@
 class StudentProfilesController < ApplicationController
   skip_before_action :require_login
 
+  def new
+    @parent_profile = current_profile
+    @student_profile = StudentProfile.new
+  end
+
   def create
     @student_user = sign_up(student_user_params)
     student_profile = find_student_profile
