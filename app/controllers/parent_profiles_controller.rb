@@ -1,6 +1,13 @@
 class ParentProfilesController < ApplicationController
   skip_before_action :require_login
-  before_action :require_parenthood
+  before_action :require_parenthood, only: [
+    :edit,
+    :update,
+    :show]
+  before_action :require_profile_ownership, only: [
+    :edit,
+    :update,
+    :show]
 
   def edit
     @user = User.find(params[:user_id])
@@ -32,5 +39,16 @@ class ParentProfilesController < ApplicationController
 
   def find_children
     StudentProfile.where(parent_profile_id: @parent_profile.id)
+  end
+
+  def require_profile_ownership
+    unless parent_owns_profile?
+      flash[:error] = "This is not your profile."
+      redirect_to edit_user_parent_profile_path(current_user, current_profile)
+    end
+  end
+
+  def parent_owns_profile?
+    current_profile.id.to_s == params[:id]
   end
 end
