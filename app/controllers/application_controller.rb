@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   def require_parenthood
     unless parent_profile?
-      flash[:error] = "You must be a parent to access this section."
+      flash[:error] = 'You must be a parent to access this section.'
       redirect_to root_path
     end
   end
@@ -21,6 +21,6 @@ class ApplicationController < ActionController::Base
   private
 
   def parent_profile?
-    current_profile.class.to_s == "ParentProfile"
+    current_profile.class.to_s == 'ParentProfile'
   end
 end

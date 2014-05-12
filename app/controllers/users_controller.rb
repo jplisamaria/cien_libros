@@ -6,15 +6,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    binding.pry
     @user = sign_up(user_params)
-    binding.pry
     if @user.valid?
       sign_in(@user)
-      binding.pry
       redirect_to_create_profile
     else
-      binding.pry
       render :new
     end
   end
