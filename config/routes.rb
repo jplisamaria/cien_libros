@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :parent_profiles, only: [:show] do
-    resources :student_profiles, only: [:new, :create]
+    resources :student_profiles, only: [:new, :create, :show]
   end
 
   resources :student_books, only: [:new, :create, :index]

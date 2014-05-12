@@ -35,4 +35,8 @@ class StudentProfile < ActiveRecord::Base
   def book_list
     books.order(:title).pluck(:title)
   end
+
+  def child_of?(profile)
+    parent_profile_id == profile.id
+  end
 end
