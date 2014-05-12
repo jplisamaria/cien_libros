@@ -13,6 +13,10 @@ class StudentProfilesController < ApplicationController
     redirect_to parent_profile
   end
 
+  def show
+    @student = StudentProfile.find(params[:id])
+  end
+
   def edit
     @student_user = User.find(params[:user_id])
     @student_profile = find_student_profile
