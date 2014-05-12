@@ -1,5 +1,5 @@
 class StudentProfilesController < ApplicationController
-  skip_before_action :require_login
+  before_action :require_parenthood
 
   def new
     @parent_profile = current_profile

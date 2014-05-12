@@ -1,3 +1,3 @@
 class ParentProfile < ActiveRecord::Base
-#  has_many :student_profiles
+  has_one :user, as: :profile, dependent: :destroy
 end

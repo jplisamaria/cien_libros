@@ -9,4 +9,17 @@ class ApplicationController < ActionController::Base
     current_user.profile
   end
   helper_method :current_profile
+
+  def parent_profile?
+    current_profile.class.to_s == "ParentProfile"
+  end
+  helper_method :parent_profile?
+
+  def require_parenthood
+    unless parent_profile?
+      flash[:error] = "You must be a parent to access this section."
+      redirect_to root_path
+    end
+  end
+  helper_method :require_parenthood
 end

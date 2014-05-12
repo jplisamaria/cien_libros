@@ -4,5 +4,5 @@ class User < ActiveRecord::Base
   validates :profile_type, presence: true
 
   delegate :book_list, to: :profile
-  belongs_to :profile, polymorphic: true, dependent: :destroy
+  belongs_to :profile, polymorphic: true
 end
