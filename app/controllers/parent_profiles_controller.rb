@@ -26,7 +26,6 @@ class ParentProfilesController < ApplicationController
   end
 
   def find_parent_profile
-    #  Do I need to check who current_user is?
     ParentProfile.find(params[:id])
   end
 

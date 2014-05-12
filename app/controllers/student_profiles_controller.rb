@@ -35,10 +35,10 @@ class StudentProfilesController < ApplicationController
   end
 
   def student_user_params
-    params.permit(:username, :password).merge(profile: student_user_profile)
+    params.permit(:username, :password).merge(profile: new_student_profile)
   end
 
-  def student_user_profile
+  def new_student_profile
     StudentProfile.new
   end
 
@@ -47,12 +47,10 @@ class StudentProfilesController < ApplicationController
   end
 
   def parent_profile
-#   check if current_user.profile = ParentProfile
     current_profile
   end
 
   def parent_user
-#    check if current_user.profile = ParentProfile
     current_user
   end
 end
