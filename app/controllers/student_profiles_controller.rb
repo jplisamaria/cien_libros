@@ -7,8 +7,8 @@ class StudentProfilesController < ApplicationController
   end
 
   def create
-    @student_user = sign_up(student_user_params)
-    student_profile = find_student_profile
+    student_user = sign_up(student_user_params)
+    student_profile = student_user.profile
     student_profile.update(student_profile_params)
     redirect_to parent_profile
   end
@@ -43,7 +43,7 @@ class StudentProfilesController < ApplicationController
   end
 
   def find_student_profile
-    StudentProfile.find(@student_user.profile_id)
+    StudentProfile.find(student_user.profile_id)
   end
 
   def parent_profile
