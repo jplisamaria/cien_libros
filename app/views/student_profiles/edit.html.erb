@@ -1,9 +1,0 @@
-<h2>Your info</h2>
-<%= simple_form_for [@user, @student_profile] do |form| %>
-  <%= form.input :first_name %>
-  <%= form.input :last_name %>
-  <%= form.input :grade_last_year,
-    collection: StudentProfile::GRADES,
-    include_blank: false %>
-  <%= form.button :submit %>
-<% end %>

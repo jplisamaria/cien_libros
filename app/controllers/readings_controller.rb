@@ -3,7 +3,7 @@ class ReadingsController < ApplicationController
     @book = Book.new
     @reading = Reading.new
     @student = current_profile
-    @readings = current_profile.readings.newest_first
+    @readings = @student.readings.newest_first
   end
 
   def create

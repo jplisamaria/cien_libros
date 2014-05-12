@@ -14,18 +14,11 @@ class StudentProfilesController < ApplicationController
   end
 
   def show
-    @student = StudentProfile.find(params[:id])
-  end
-
-  def edit
-    @student_user = User.find(params[:user_id])
-    @student_profile = find_student_profile
-  end
-
-  def update
-    student_profile = find_student_profile
-    student_profile.update(student_profile_params)
-    redirect_to root_path
+    if your_child?
+      @student = StudentProfile.find(params[:id])
+    else
+      redirect_to root_path
+    end
   end
 
   private
@@ -46,15 +39,16 @@ class StudentProfilesController < ApplicationController
     StudentProfile.new
   end
 
-  def find_student_profile
-    StudentProfile.find(student_user.profile_id)
-  end
-
   def parent_profile
     current_profile
   end
 
   def parent_user
     current_user
+  end
+
+  def your_child?
+    student = StudentProfile.find(params[:id])
+    current_profile.id == student.parent_profile_id
   end
 end
