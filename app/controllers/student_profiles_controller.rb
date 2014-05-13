@@ -2,8 +2,8 @@ class StudentProfilesController < ApplicationController
   before_action :require_parenthood
 
   def new
-    @parent_profile = current_profile
-    @student_profile = StudentProfile.new
+    @parent_profile = parent_profile
+    @student_profile = new_student_profile
   end
 
   def create
@@ -13,15 +13,11 @@ class StudentProfilesController < ApplicationController
     redirect_to parent_profile
   end
 
-  def edit
-    @student_user = User.find(params[:user_id])
-    @student_profile = find_student_profile
-  end
-
-  def update
-    student_profile = find_student_profile
-    student_profile.update(student_profile_params)
-    redirect_to root_path
+  def show
+    @student = StudentProfile.find(params[:id])
+    unless @student.child_of(current_profile)
+      redirect_to parent_profile
+    end
   end
 
   private
@@ -31,7 +27,8 @@ class StudentProfilesController < ApplicationController
       :first_name,
       :last_name,
       :grade_last_year,
-    ).merge(parent_profile_id: current_profile.id)
+      :at_hernandez
+    ).merge(parent_profile_id: parent_profile.id)
   end
 
   def student_user_params
@@ -42,15 +39,7 @@ class StudentProfilesController < ApplicationController
     StudentProfile.new
   end
 
-  def find_student_profile
-    StudentProfile.find(student_user.profile_id)
-  end
-
   def parent_profile
     current_profile
-  end
-
-  def parent_user
-    current_user
   end
 end
