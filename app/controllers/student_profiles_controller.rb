@@ -15,7 +15,7 @@ class StudentProfilesController < ApplicationController
 
   def show
     @student = StudentProfile.find(params[:id])
-    unless @student.child_of(current_profile)
+    unless @student.child_of?(current_profile)
       redirect_to parent_profile
     end
   end
