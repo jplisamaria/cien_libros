@@ -37,6 +37,6 @@ class StudentProfile < ActiveRecord::Base
   end
 
   def child_of(profile)
-    self.parent_profile_id == profile.id
+    parent_profile_id == profile.id
   end
 end
