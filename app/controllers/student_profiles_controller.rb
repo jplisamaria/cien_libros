@@ -2,8 +2,8 @@ class StudentProfilesController < ApplicationController
   before_action :require_parenthood
 
   def new
-    @parent_profile = current_profile
-    @student_profile = StudentProfile.new
+    @parent_profile = parent_profile
+    @student_profile = new_student_profile
   end
 
   def create
@@ -14,10 +14,9 @@ class StudentProfilesController < ApplicationController
   end
 
   def show
-    if your_child?
-      @student = StudentProfile.find(params[:id])
-    else
-      redirect_to root_path
+    @student = StudentProfile.find(params[:id])
+    unless @student.child_of(current_profile)
+      redirect_to parent_profile
     end
   end
 
@@ -41,14 +40,5 @@ class StudentProfilesController < ApplicationController
 
   def parent_profile
     current_profile
-  end
-
-  def parent_user
-    current_user
-  end
-
-  def your_child?
-    student = StudentProfile.find(params[:id])
-    current_profile.id == student.parent_profile_id
   end
 end
