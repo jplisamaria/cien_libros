@@ -43,7 +43,6 @@ class ParentProfilesController < ApplicationController
 
   def require_profile_ownership
     unless parent_owns_profile?
-      flash[:error] = 'This is not your profile.'
       redirect_to edit_user_parent_profile_path(current_user, current_profile)
     end
   end
