@@ -27,7 +27,8 @@ class StudentProfilesController < ApplicationController
       :first_name,
       :last_name,
       :grade_last_year,
-    ).merge(parent_profile_id: current_profile.id)
+      :at_hernandez
+    ).merge(parent_profile_id: parent_profile.id)
   end
 
   def student_user_params

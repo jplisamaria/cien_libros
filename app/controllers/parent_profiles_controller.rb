@@ -22,7 +22,7 @@ class ParentProfilesController < ApplicationController
 
   def show
     @parent_profile = current_profile
-    @children = find_children
+    @children = find_own_children
   end
 
   private
@@ -37,8 +37,8 @@ class ParentProfilesController < ApplicationController
     ParentProfile.find(params[:id])
   end
 
-  def find_children
-    StudentProfile.where(parent_profile_id: @parent_profile.id)
+  def find_own_children
+    StudentProfile.where(parent_profile_id: current_profile.id)
   end
 
   def require_profile_ownership
