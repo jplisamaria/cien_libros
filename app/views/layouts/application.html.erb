@@ -15,8 +15,8 @@
     <%= link_to (t ".sign_up"), new_user_path %>
   <% end %>
   <div>
-    <%= t ".language" %>:
-    | <%= link_to_unless_current "Espa&ntilde;ol".html_safe, 
+    <%= t ".language" %>: |
+    <%= link_to_unless_current "Espa&ntilde;ol".html_safe, 
       locale: "es"%> |
     <%= link_to_unless_current "English", locale: "en"%> |
   </div>
