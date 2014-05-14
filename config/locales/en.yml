@@ -40,6 +40,18 @@ en:
       page_suffix: "'s Page"
       instructions_to_add_a_child: "Add a child"
       indicate_children: "The following are your children:"
+  student_profile_dashboards:
+    student_profile_dashboard:
+      page_prefix: ""
+      page_suffix: "'s Page"
+      congratulations_message: "CONGRATULATIIONS!  You've reached your goal!"
+      you_have_read: "You have read "
+      books_total: "books total."
+      you_have_read_titles: "You've read the following books:"
+      readings_left_prefix: "You need to read "
+      readings_left_suffix: "more books."
+      you_have_not_read_any: "You haven't read any books yet."
+      direct_to_reading_log: "Go to your reading log"
   student_profiles:
     new:
       add_a_new_child: "Add your child"
@@ -48,16 +60,32 @@ en:
       books: "books."
       reading_log_prefix: ""
       reading_log_suffix: "'s Reading Log"
+  readings:
+    index:
+      journal_title: "Reading Log"
+      add_a_new_book: "Add a new book"
+      add_an_entry: "Add an entry"
+      your_reading_log: "Your Reading Log"
+    table:
+      log_entry: "Log Entry"
+      title: "Title"
+      amount_read: "Amount Read"
+      date: "Date"
   helpers:
     submit:
       user:
         create: "Sign up"
+      session:
+        create: "Sign in"
       parent_profile:
         update: "Submit"
       student_profile:
         create: "Sign up your child"
     label:
       user:
+        username: "Username"
+        password: "Password"
+      session:
         username: "Username"
         password: "Password"
       student_profile:

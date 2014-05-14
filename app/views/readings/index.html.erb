@@ -1,25 +1,25 @@
-<h1> Your Reading Log</h1>
+<h1><%= t ".journal_title" %></h1>
 
-<h3>Add a new book</h3>
+<h3><%t ".add_a_new_book" %></h3>
 <%= simple_form_for @book do |form| %> 
   <%= form.input :title %>
   <%= form.input :author %>
-  <%= form.button :submit, "Add new book" %>
+  <%= form.button :submit %>
 <% end %>
 
 <% if current_profile.student_books.any? %>
-  <h3>Add a new reading entry</h3>
+  <h3><%= t ".add_an_entry" %></h3>
   <%= simple_form_for @reading do |form| %>
     <%= form.input :title, 
       collection: current_profile.book_list, 
       include_blank: false 
     %>
     <%= form.input :amount_read %>
-    <%= form.button :submit, "Add a new log" %>
+    <%= form.button :submit%>
   <% end %> 
 <% end %> 
 
 <% if current_profile.readings.any? %>
-  <h3>Your reading log</h3>
+  <h3><%= t ".your_reading_log" %></h3>
   <%= render 'readings/table' %>
 <% end %>

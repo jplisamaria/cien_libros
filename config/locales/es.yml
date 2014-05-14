@@ -40,24 +40,52 @@ es:
       page_suffix: ""
       instructions_to_add_a_child: "Inscriba a un hijo"
       indicate_children: "Estos son sus hijos:"
+  student_profile_dashboards:
+    student_profile_dashboard:
+      page_prefix: "Pagina de "
+      page_suffix: ""
+      congratulations_message: "¡FELICITACIONES!  ¡Has logrado tu meta!"
+      you_have_read: "Has leído "
+      books_total: "libros en total."
+      you_have_read_titles: "Has leíido los siguientes libros:"
+      readings_left_prefix: "Te falta leer "
+      readings_left_suffix: "libros."
+      you_have_not_read_any: "No has leíido ningun libro todavía."
+      direct_to_reading_log: "Ve a tu diario de lectura"
   student_profiles:
     new:
       add_a_new_child: "Inscriba a su hijo"
     show:
-      has_read: "ha leyido "
+      has_read: "ha leído "
       books: "libros."
       reading_log_prefix: "Diario de lectura de"
       reading_log_suffix: ""
+  readings:
+    index:
+      journal_title: "Diario de Lectura"
+      add_a_new_book: "Añade un libro a tu lista"
+      add_an_entry: "Has una entrada en tu diario"
+      your_reading_log: "Tu diario de lectura"
+    table:
+      log_entry: "No. de Entrada"
+      title: "Título"
+      amount_read: "Cuanto Leíste"
+      date: "Fecha"
   helpers:
     submit:
       user:
         create: "Inscríbase"
+      session:
+        create: "Iniciar Sesíon"
       parent_profile:
         update: "Enviar"
       student_profile:
         create: "Inscriba a su hijo"
     label:
       user:
+        username: "Nombre de usuario"
+        password: "Contraseña"
+      session:
         username: "Nombre de usuario"
         password: "Contraseña"
       student_profile:

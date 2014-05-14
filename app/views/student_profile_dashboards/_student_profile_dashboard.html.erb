@@ -1,22 +1,38 @@
-<h2><%= current_user.username %>'s page </h2>
+<h2>
+  <%= t ".page_prefix" %>
+  <%= current_user.username %>
+  <%= t ".page_suffix" %> 
+</h2>
 
 <% if current_profile.goal_reached? %>
-  <p> CONGRATULATIONS!!  You've reached your goal! <p>
-  <p> You have read <%= current_profile.readings_done %> books total. </p>
+  <p> <%= t ".congratulations_message" %><p>
+  <p>
+    <%= t ".you_have_read" %>
+    <%= current_profile.readings_done %>
+    <%= t ".books_total" %>
+  </p>
 
 <% elsif current_profile.student_books.any? %>
   <p> 
-    You have read the following titles:  <br>
+    <%= t ".you_have_read_titles" %>
+    <br>
     <% current_profile.book_list.each do |title| %>
       <%= title %><br>
     <% end %>
   </p>
-  <p> You have read <%= current_profile.readings_done %> books total. </p>
-  <p> You have <%= current_profile.readings_left %> books to go.  </p>
+  <p>
+    <%= t ".you_have_read" %>
+    <%= current_profile.readings_done %>
+    <%= t ".books_total" %>
+  </p>
+  <p>
+    <%= t ".readings_left_prefix" %>
+    <%= current_profile.readings_left %>
+    <%= t ".readings_left_suffix" %>
+  </p>
 
-
-<% else %>  
-  <p> You haven't read any books yet. </p>
+<% else %>
+  <p><%= t ".you_have_not_read_any" %></p>
 <% end %>
 
-<%= link_to "Go to your reading log", readings_path %>
+<%= link_to (t ".direct_to_reading_log"), readings_path %>

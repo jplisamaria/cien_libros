@@ -1,6 +1,6 @@
 es:
   simple_form:
-    "yes": 'S&iacute;'
+    "yes": 'Si'
     "no": 'No'
     required:
       text: 'requirido'
@@ -27,7 +27,22 @@ es:
       parent_profile:
         first_name: "Nombre"
         last_name: "Apellido"
+      session:
+        username: "Nombre de usuario"
+        password: "Contraseña"
+      book:
+        title: "Título"
+        author: "Autor"
+      reading:
+        title: "Título"
+        amount_read: "Cuanto Leíste"
     helpers:
       submit:
+        session:
+          create: "Iniciar Sesíon"
         parent_profile:
           update: "Enviar"
+        book:
+          create: "Añade Libro"
+        reading:
+          create: "Añade Entrada de Diario"
