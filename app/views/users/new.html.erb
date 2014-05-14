@@ -7,12 +7,9 @@
     <%= form.label :password %>
     <%= form.password_field :password %>
   </div>
+    <%= form.hidden_field :profile, value: :"ParentProfile" %>
   <div>
-    <p>I am a:</p>
-    <p><%= form.radio_button :profile, 'ParentProfile' %> Parent</p>
-  </div>
-  <div>
-    <%= form.submit "Sign up" %>
+    <%= form.submit%>
   </div>
 <% end %>
 

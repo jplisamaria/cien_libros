@@ -9,12 +9,17 @@
 <body>
 
   <% if signed_in? %>
-    <%= link_to 'Sign out', session_path, method: :delete %>
+    <%= link_to (t ".sign_out"), session_path, method: :delete %>
   <% else %>
-    <%= link_to 'Sign in', new_session_path %>
-    <%= link_to 'Sign up', new_user_path %>
+    <%= link_to (t ".sign_in"), new_session_path %>
+    <%= link_to (t ".sign_up"), new_user_path %>
   <% end %>
-  
+  <div>
+    <%= t ".language" %>:
+    | <%= link_to_unless_current "Espa&ntilde;ol".html_safe, 
+      locale: "es"%> |
+    <%= link_to_unless_current "English", locale: "en"%> |
+  </div>
 <%= yield %>
 
 </body>

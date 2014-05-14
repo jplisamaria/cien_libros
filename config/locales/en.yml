@@ -21,3 +21,49 @@
 
 en:
   hello: "Hello world"
+  layouts:
+    application:
+      sign_out: "Sign Out"
+      sign_in: "Sign In"
+      sign_up: "Sign Up"
+      language: "Language"
+  parent_profile_dashboards:
+    parent_profile_dashboard:
+      dashboard_prefix: ""
+      dashboard_suffix: "'s Dashboard"
+      your_information: "Your Information"
+  parent_profiles:
+    edit: 
+      your_information: "Your information"
+    show:
+      page_prefix: ""
+      page_suffix: "'s Page"
+      instructions_to_add_a_child: "Add a child"
+      indicate_children: "The following are your children:"
+  student_profiles:
+    new:
+      add_a_new_child: "Add your child"
+    show:
+      has_read: "has read "
+      books: "books."
+      reading_log_prefix: ""
+      reading_log_suffix: "'s Reading Log"
+  helpers:
+    submit:
+      user:
+        create: "Sign up"
+      parent_profile:
+        update: "Submit"
+      student_profile:
+        create: "Sign up your child"
+    label:
+      user:
+        username: "Username"
+        password: "Password"
+      student_profile:
+        first_name: "First name"
+        last_name: "Last name"
+        grade_last_year: "School grade last year:"
+        at_hernandez: "Is this child a Hernandez student?"
+        username: "Username"
+        password: "Password"

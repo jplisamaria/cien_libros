@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+  before_action :set_locale
   protect_from_forgery with: :exception
   include Monban::ControllerHelpers
   before_action :require_login
@@ -12,13 +13,20 @@ class ApplicationController < ActionController::Base
 
   def require_parenthood
     unless parent_profile?
-      flash[:error] = 'You must be a parent to access this section.'
       redirect_to root_path
     end
   end
   helper_method :require_parenthood
 
   private
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def default_url_options(options = {})
+    { locale: I18n.locale }
+  end
 
   def parent_profile?
     current_profile.class.to_s == 'ParentProfile'
