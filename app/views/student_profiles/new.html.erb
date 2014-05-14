@@ -1,4 +1,4 @@
-<h2> Add a new child </h2>
+<h2><%= t ".add_a_new_child" %></h2>
 
 <%= form_for [current_profile, @student_profile] do |form| %>
   <div>
@@ -15,7 +15,7 @@
   </div>
   <div>
     <%= form.check_box :at_hernandez %>
-    <%= form.label :at_hernandez, 'Is this child a Hernandez Student?' %>
+    <%= form.label :at_hernandez %>
   </div>
 
   <div>
@@ -27,6 +27,6 @@
     <%= text_field_tag :password %>
   </div>
   <div>
-    <%= form.submit "Sign your child up" %>
+    <%= form.submit %>
   </div>
 <% end %>
