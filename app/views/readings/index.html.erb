@@ -1,6 +1,6 @@
 <h1><%= t ".journal_title" %></h1>
 
-<h3><%t ".add_a_new_book" %></h3>
+<h3><%= t ".add_a_new_book" %></h3>
 <%= simple_form_for @book do |form| %> 
   <%= form.input :title %>
   <%= form.input :author %>
