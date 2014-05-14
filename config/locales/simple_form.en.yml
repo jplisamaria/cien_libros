@@ -1,4 +1,14 @@
 en:
+  helpers:
+    submit:
+      session:
+        create: "Sign in"
+      parent_profile:
+        update: "Submit"
+      book:
+        create: "Add a Book"
+      reading:
+        create: "Add a Log Entry"
   simple_form:
     "yes": 'Yes'
     "no": 'No'
@@ -36,14 +46,3 @@ en:
       reading:
         title: "Title"
         amount_read: "Amount Read"
-    helpers:
-      submit:
-        session:
-          create: "Sign in"
-        parent_profile:
-          update: "Submit"
-        book:
-          create: "Add a Book"
-        reading:
-          create: "Add a Log Entry"
-

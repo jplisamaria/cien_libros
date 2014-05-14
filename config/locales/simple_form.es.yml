@@ -1,4 +1,14 @@
 es:
+  helpers:
+    submit:
+      session:
+        create: "Iniciar Sesíon"
+      parent_profile:
+        update: "Enviar"
+      book:
+        create: "Añade Libro"
+      reading:
+        create: "Añade Entrada de Diario"
   simple_form:
     "yes": 'Si'
     "no": 'No'
@@ -36,13 +46,3 @@ es:
       reading:
         title: "Título"
         amount_read: "Cuanto Leíste"
-    helpers:
-      submit:
-        session:
-          create: "Iniciar Sesíon"
-        parent_profile:
-          update: "Enviar"
-        book:
-          create: "Añade Libro"
-        reading:
-          create: "Añade Entrada de Diario"

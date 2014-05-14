@@ -1,6 +1,6 @@
 <h2><%= t ".page_prefix" %><%= current_profile.first_name %><%= t ".page_suffix" %></h2>
 
-<%= link_to(t ".instructions_to_add_a_child"), new_parent_profile_student_profile_path(current_profile) %>
+<%= link_to (t ".instructions_to_add_a_child"), new_parent_profile_student_profile_path(current_profile) %>
 <p> <%= t ".indicate_children" %></p>
 <% @children.each do |child| %>
   <%= link_to child.first_name, [current_profile, child] %> <br>
