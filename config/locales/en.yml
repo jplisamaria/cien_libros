@@ -31,7 +31,7 @@ en:
     parent_profile_dashboard:
       dashboard_prefix: ""
       dashboard_suffix: "'s Dashboard"
-      your_information: "Your Information"
+      your_information: "Go to your children's pages"
   parent_profiles:
     edit: 
       your_information: "Your information"

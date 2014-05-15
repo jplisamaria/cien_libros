@@ -31,7 +31,7 @@ es:
     parent_profile_dashboard:
       dashboard_prefix: "El tablero de "
       dashboard_suffix: ""
-      your_information: "Sus datos personales"
+      your_information: "Vaya a las paginas de sus hijos"
   parent_profiles:
     edit: 
       your_information: "Sus datos personales"

@@ -1,8 +1,14 @@
 <h2>
   <%= t ".dashboard_prefix" %>
-  <%= current_user.username %>
+  <%= current_profile.first_name %>
   <%= t ".dashboard_suffix" %>
 </h2>
 
 <%= link_to t(".your_information"), parent_profile_path(current_profile) %>
 
+<h4>Items that will be listed here:</h4>
+<ul>
+  <li>The last two or three books that each of your children read</li>
+  <li>A sample of books that other children are reading</li>
+  <li>The most popular books</li>
+  <li>The average number of books read by children in the same grade as your child

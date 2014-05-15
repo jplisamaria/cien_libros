@@ -1,6 +1,6 @@
 <h2>
   <%= t ".page_prefix" %>
-  <%= current_user.username %>
+  <%= current_profile.first_name %>
   <%= t ".page_suffix" %> 
 </h2>
 
@@ -16,18 +16,22 @@
   <p> 
     <%= t ".you_have_read_titles" %>
     <br>
-    <% current_profile.book_list.each do |title| %>
-      <%= title %><br>
-    <% end %>
+    <ul><% current_profile.book_list.each do |title| %>
+      <li><em><%= title %></em><br></li>
+    <% end %></ul>
   </p>
   <p>
     <%= t ".you_have_read" %>
-    <%= current_profile.readings_done %>
+    <font color="blue">
+      <%= current_profile.readings_done %>
+    </font>
     <%= t ".books_total" %>
   </p>
   <p>
     <%= t ".readings_left_prefix" %>
-    <%= current_profile.readings_left %>
+    <font color="red">
+      <%= current_profile.readings_left %>
+    </font>
     <%= t ".readings_left_suffix" %>
   </p>
 

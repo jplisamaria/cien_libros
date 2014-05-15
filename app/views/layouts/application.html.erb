@@ -1,26 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>CienLibros</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-  <% if signed_in? %>
-    <%= link_to t(".sign_out"), session_path, method: :delete %>
-  <% else %>
-    <%= link_to t(".sign_in"), new_session_path %>
-    <%= link_to t(".sign_up"), new_user_path %>
-  <% end %>
-  <div>
-    <%= t ".language" %>: |
-    <%= link_to_unless_current "Espa&ntilde;ol".html_safe, 
-      locale: "es"%> |
-    <%= link_to_unless_current "English", locale: "en"%> |
-  </div>
-<%= yield %>
-
-</body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Cien Libros" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Cien Libros" %>">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%# Modernizr is required for Zurb Foundation %>
+    <%= javascript_include_tag 'vendor/modernizr' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+    <main role="main">
+       <%= render 'layouts/messages' %>
+       <%= yield %>
+    </main>
+  </body>
 </html>
