@@ -6,9 +6,9 @@ en:
       parent_profile:
         update: "Submit"
       book:
-        create: "Add a Book"
+        create: "Add Book"
       reading:
-        create: "Add a Log Entry"
+        create: "Add Log Entry"
   simple_form:
     "yes": 'Yes'
     "no": 'No'
@@ -42,7 +42,7 @@ en:
         password: "Password"
       book:
         title: "Title"
-        author: "Author"
+        author: "Autjor"
       reading:
         title: "Title"
         amount_read: "Amount Read"
