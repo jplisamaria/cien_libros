@@ -5,7 +5,7 @@
     <td><b><%= t ".amount_read" %></b></td>
     <td><b><%= t ".date" %></b></td>
   </tr>
-  <% @student.readings.each_with_index do |reading, index| %>
+  <% @student.readings.reverse.each_with_index do |reading, index| %>
     <tr>
       <td><%= (@student.readings.count - index) %></td>
       <td><%= reading.book_title %></td>

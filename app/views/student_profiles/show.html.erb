@@ -1,9 +1,15 @@
 <p>
+  <%= link_to t( ".update_student_info"),
+    edit_parent_profile_student_profile_path %>
+</p>
+<p>
   <%= @student.first_name %> 
   <%= t ".has_read" %>
   <%= @student.readings.count %>
   <%= t ".books" %>
 </p>
+
+
 
 <% if @student.readings.any? %>
   <h3>

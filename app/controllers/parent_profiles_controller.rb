@@ -10,8 +10,12 @@ class ParentProfilesController < ApplicationController
     :show]
 
   def edit
-    @user = User.find(params[:user_id])
     @parent_profile = find_parent_profile
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+    else
+      @user = User.find_by(profile_id: @parent_profile.id) 
+    end
   end
 
   def update

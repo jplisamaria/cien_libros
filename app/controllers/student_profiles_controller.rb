@@ -14,13 +14,32 @@ class StudentProfilesController < ApplicationController
   end
 
   def show
-    @student = StudentProfile.find(params[:id])
+    @student = find_student_profile
     unless @student.child_of?(current_profile)
       redirect_to parent_profile
     end
   end
 
+  def edit
+    @student = find_student_profile
+    unless @student.child_of?(current_profile)
+      redirect_to parent_profile
+    end
+  end
+
+  def update
+    student_profile = find_student_profile
+    student_profile.update(student_profile_params)
+    student_user = User.find_by(profile_id: student_profile.id)
+    reset_password(student_user, params[:password])
+    redirect_to parent_profile
+  end
+
   private
+
+  def find_student_profile
+    StudentProfile.find(params[:id])
+  end
 
   def student_profile_params
     params.require(:student_profile).permit(

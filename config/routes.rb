@@ -11,8 +11,14 @@ Rails.application.routes.draw do
       resources :parent_profiles, only: [:edit, :update]
     end
 
-    resources :parent_profiles, only: [:show] do
-      resources :student_profiles, only: [:new, :create, :show]
+    resources :parent_profiles, only: [:show, :edit, :update] do
+      resources :student_profiles, only: [
+        :new,
+        :create,
+        :show,
+        :edit,
+        :update
+      ]
     end
 
     resources :student_books, only: [:new, :create, :index]
