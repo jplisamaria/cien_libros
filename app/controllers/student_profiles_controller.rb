@@ -35,6 +35,12 @@ class StudentProfilesController < ApplicationController
     redirect_to parent_profile
   end
 
+  def destroy
+    student_profile = find_student_profile
+    student_profile.destroy
+    redirect_to parent_profile
+  end
+  
   private
 
   def find_student_profile

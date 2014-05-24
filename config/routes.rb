@@ -20,6 +20,7 @@ Rails.application.routes.draw do
         :update
       ]
     end
+    resources :student_profiles, only: [:destroy]
 
     resources :student_books, only: [:new, :create, :index]
     resources :books, only: [:create]

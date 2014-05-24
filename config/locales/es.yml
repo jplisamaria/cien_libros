@@ -34,7 +34,7 @@ es:
       your_information: "Sus datos personales"
   parent_profiles:
     edit: 
-      your_information: "Sus datos person iales"
+      your_information: "Sus datos personales"
     show:
       page_prefix: "Pagina de "
       page_suffix: ""

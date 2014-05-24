@@ -14,7 +14,7 @@ class ParentProfilesController < ApplicationController
     if params[:user_id]
       @user = User.find(params[:user_id])
     else
-      @user = User.find_by(profile_id: @parent_profile.id) 
+      @user = User.find_by(profile_id: @parent_profile.id)
     end
   end
 
