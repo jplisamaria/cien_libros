@@ -24,6 +24,6 @@ Rails.application.routes.draw do
 
     resources :student_books, only: [:new, :create, :index]
     resources :books, only: [:create]
-    resources :readings, only: [:index, :create]
+    resources :readings, only: [:index, :create, :destroy]
   end
 end

@@ -2,7 +2,7 @@ class ReadingsController < ApplicationController
   def index
     @book = Book.new
     @reading = Reading.new
-    @student_readings = current_profile.readings.newest_first
+    @readings = current_profile.readings.newest_first
   end
 
   def create
@@ -10,6 +10,12 @@ class ReadingsController < ApplicationController
     book = Book.find_by(title: title)
     student_book_id = find_student_book_id(book)
     Reading.create(reading_params.merge(student_book_id: student_book_id))
+    redirect_to readings_path
+  end
+
+  def destroy
+    reading = Reading.find(params[:id])
+    reading.destroy
     redirect_to readings_path
   end
 
