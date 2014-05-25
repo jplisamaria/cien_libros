@@ -14,7 +14,9 @@ class StudentProfilesController < ApplicationController
   end
 
   def show
+    binding.pry
     @student = find_student_profile
+    @readings = @student.readings
     unless @student.child_of?(current_profile)
       redirect_to parent_profile
     end

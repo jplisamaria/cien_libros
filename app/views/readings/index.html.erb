@@ -19,6 +19,19 @@
   <% end %> 
 <% end %> 
 
+<% if @reading_to_be_updated %>
+  <h3><%= t ".update_a_reading_header" %></h3>
+  <%= simple_form_for @reading_to_be_updated do |form| %>
+    <%= form.input :title, 
+      collection: current_profile.book_list, 
+      include_blank: false 
+    %>
+    <%= form.input :amount_read %>
+    <%= form.button :submit%>
+  <% end %> 
+
+<% end %>
+
 <% if current_profile.readings.any? %>
   <h3><%= t ".your_reading_log" %></h3>
   <%= render 'readings/table' %>
