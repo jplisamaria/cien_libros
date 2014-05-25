@@ -45,5 +45,4 @@ class ReadingsController < ApplicationController
       student_profile_id: current_profile.id
     ).id
   end
-
 end
