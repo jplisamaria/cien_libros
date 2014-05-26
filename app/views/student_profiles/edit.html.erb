@@ -1,0 +1,32 @@
+<h2>
+  <%= t ".update_a_new_child" %>
+  <%= @student.first_name %>
+  <%= t ".information" %>
+</h2>
+
+<%= form_for [current_profile, @student] do |form| %>
+  <div>
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+  <div>
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+  <div>
+    <%= form.label :grade_last_year %>
+    <%= form.select :grade_last_year, StudentProfile::GRADES %>
+  </div>
+  <div>
+    <%= form.check_box :at_hernandez %>
+    <%= form.label :at_hernandez %>
+  </div>
+
+  <div>
+    <%= form.label :password %>
+    <%= text_field_tag :password %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

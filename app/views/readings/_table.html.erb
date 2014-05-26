@@ -2,15 +2,32 @@
   <tr>
     <td><b><%= t ".log_entry" %></b></td>
     <td><b><%= t ".title" %></b></td>
+    <td><b><%= t ".author" %></b></td>
     <td><b><%= t ".amount_read" %></b></td>
     <td><b><%= t ".date" %></b></td>
+    <% if current_profile.class == StudentProfile %>
+      <td><b><%= t ".delete_entry" %></b></td>
+      <td><b><%= t ".edit_reading" %></b></td>
+    <% end %>
   </tr>
-  <% @student.readings.each_with_index do |reading, index| %>
+  <% @readings.each_with_index do |reading, index| %>
     <tr>
-      <td><%= (@student.readings.count - index) %></td>
+      <td><%= (@readings.count - index) %></td>
       <td><%= reading.book_title %></td>
+      <td><%= reading.book_author %></td>
       <td><%= reading.amount_read %></td>
       <td><%= reading.created_at.strftime("%B %d, %Y") %></td>
+      <% if current_profile.class == StudentProfile %>
+        <td>
+          <%= link_to "X", 
+            reading,
+            method: :delete,
+            data: { confirm: I18n.t( ".reading_deletion_confirmtaion") }
+          %>
+        <td>
+          <%= link_to t( ".edit_reading"), readings_path(readings_id: reading) %>
+        </td>
+      <% end %>
     </tr>
     <br>
   <% end %>
