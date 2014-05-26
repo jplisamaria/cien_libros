@@ -39,7 +39,7 @@ class BooksController < ApplicationController
   end
 
   def form_includes_author?
-    params[:book][:author] != ""
+    params[:book][:author] != ''
   end
 
   def book_params
