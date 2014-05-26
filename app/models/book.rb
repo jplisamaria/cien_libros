@@ -4,4 +4,12 @@ class Book < ActiveRecord::Base
 
   has_many :student_books
   has_many :student_profiles, through: :student_books
+
+  def has_author?
+    author != ''
+  end
+
+  def has_no_author?
+    author == ''
+  end
 end
