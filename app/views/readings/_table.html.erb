@@ -2,6 +2,7 @@
   <tr>
     <td><b><%= t ".log_entry" %></b></td>
     <td><b><%= t ".title" %></b></td>
+    <td><b><%= t ".author" %></b></td>
     <td><b><%= t ".amount_read" %></b></td>
     <td><b><%= t ".date" %></b></td>
     <% if current_profile.class == StudentProfile %>
@@ -13,6 +14,7 @@
     <tr>
       <td><%= (@readings.count - index) %></td>
       <td><%= reading.book_title %></td>
+      <td><%= reading.book_author %></td>
       <td><%= reading.amount_read %></td>
       <td><%= reading.created_at.strftime("%B %d, %Y") %></td>
       <% if current_profile.class == StudentProfile %>

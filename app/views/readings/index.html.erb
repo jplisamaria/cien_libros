@@ -1,10 +1,16 @@
 <h1><%= t ".journal_title" %></h1>
 
 <h3><%= t ".add_a_new_book" %></h3>
-<%= simple_form_for @book do |form| %> 
-  <%= form.input :title %>
-  <%= form.input :author %>
-  <%= form.button :submit %>
+
+<% if @book %>
+  <%= simple_form_for @book do |form| %> 
+    <%= form.input :title %>
+    <%= form.input :author %>
+    <%= form.button :submit %>
+  <% end %>
+<% else %>
+  <%= link_to I18n.t( ".add_book"),
+    readings_path(new_book: true) %>  
 <% end %>
 
 <% if current_profile.student_books.any? %>

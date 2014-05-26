@@ -1,9 +1,9 @@
 class ReadingsController < ApplicationController
   def index
-    @book = Book.new
+    @book ||= get_new_book
     @reading = Reading.new
     @readings = current_profile.readings.newest_first
-    @reading_to_be_updated ||= reading_to_be_updated
+    @reading_to_be_updated ||= find_reading_to_be_updated
   end
 
   def create
@@ -27,7 +27,7 @@ class ReadingsController < ApplicationController
 
   private
 
-  def reading_to_be_updated
+  def find_reading_to_be_updated
     if params[:readings_id]
       Reading.find(params[:readings_id])
     end
@@ -35,6 +35,12 @@ class ReadingsController < ApplicationController
 
   def reading_params
     params.require(:reading).permit(:amount_read)
+  end
+
+  def get_new_book
+    if params[:new_book]
+      Book.new
+    end
   end
 
   def find_student_book_id
