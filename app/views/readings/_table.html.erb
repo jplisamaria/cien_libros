@@ -5,7 +5,7 @@
     <td><b><%= t ".author" %></b></td>
     <td><b><%= t ".amount_read" %></b></td>
     <td><b><%= t ".date" %></b></td>
-    <% if current_profile.class == StudentProfile %>
+    <% if current_profile.student? %>
       <td><b><%= t ".delete_entry" %></b></td>
       <td><b><%= t ".edit_reading" %></b></td>
     <% end %>
@@ -17,7 +17,7 @@
       <td><%= reading.book_author %></td>
       <td><%= reading.amount_read %></td>
       <td><%= reading.created_at.strftime("%B %d, %Y") %></td>
-      <% if current_profile.class == StudentProfile %>
+      <% if current_profile.student? %>
         <td>
           <%= link_to "X", 
             reading,

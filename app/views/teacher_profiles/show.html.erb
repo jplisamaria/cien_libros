@@ -1,0 +1,23 @@
+<h2>
+  <%= t ".page_prefix" %>
+  <%= current_profile.first_name %>
+  <%= t ".page_suffix" %>
+</h2>
+
+<p><b><%= t ".search_for_students" %></b></p>
+
+<%= form_for @teacher_student_relationship, url: new_teacher_student_relationship_path, method: :get do |form| %>
+  <div>
+    <%= form.label :grade_last_year %>
+    <%= form.select :grade_last_year, StudentProfile::GRADES %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<h3><%= t ".your_students" %></h3>
+<% @students_by_teacher.each do |student| %>
+  <%= link_to "#{student.first_name} #{student.last_name}", [current_profile, student] %> 
+  <br>
+<% end %>

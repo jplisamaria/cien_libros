@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140508210056) do
+ActiveRecord::Schema.define(version: 20140602224252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,23 @@ ActiveRecord::Schema.define(version: 20140508210056) do
   end
 
   add_index "student_profiles", ["parent_profile_id"], name: "index_student_profiles_on_parent_profile_id", using: :btree
+
+  create_table "teacher_profiles", force: true do |t|
+    t.string   "first_name", default: "", null: false
+    t.string   "last_name",  default: "", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "teacher_student_relationships", force: true do |t|
+    t.integer  "teacher_profile_id"
+    t.integer  "student_profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "teacher_student_relationships", ["student_profile_id"], name: "index_teacher_student_relationships_on_student_profile_id", using: :btree
+  add_index "teacher_student_relationships", ["teacher_profile_id"], name: "index_teacher_student_relationships_on_teacher_profile_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "password_digest", null: false

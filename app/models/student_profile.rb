@@ -5,6 +5,9 @@ class StudentProfile < ActiveRecord::Base
   has_many :books, through: :student_books
   has_many :readings, through: :student_books
 
+  has_many :teacher_student_relationships
+  has_many :teachers, through: :teacher_student_relationships
+
   GOAL = 100
   GRADES = [
     'pre-school',
@@ -38,5 +41,17 @@ class StudentProfile < ActiveRecord::Base
 
   def child_of?(profile)
     parent_profile_id == profile.id
+  end
+
+  def teacher?
+    false
+  end
+
+  def student?
+    true
+  end
+
+  def parent?
+    false
   end
 end

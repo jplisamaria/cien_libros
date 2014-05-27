@@ -29,6 +29,6 @@ class ApplicationController < ActionController::Base
   end
 
   def parent_profile?
-    current_profile.class.to_s == 'ParentProfile'
+    current_profile.parent?
   end
 end

@@ -20,8 +20,15 @@ Rails.application.routes.draw do
         :update
       ]
     end
-    resources :student_profiles, only: [
-      :destroy]
+
+    resources :teacher_profiles, only: [:show] do
+      resources :student_profiles, only: [:show]
+    end
+
+    resources :teacher_student_relationships, only: [:new, :create]
+    resources :student_searches, only: [:create]
+
+    resources :student_profiles, only: [:index, :destroy]
 
     resources :student_books, only: [:new, :create, :index]
     resources :books, only: [:create]
