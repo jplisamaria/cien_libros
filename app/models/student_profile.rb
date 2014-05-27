@@ -5,6 +5,9 @@ class StudentProfile < ActiveRecord::Base
   has_many :books, through: :student_books
   has_many :readings, through: :student_books
 
+  has_many :teacher_student_relationships
+  has_many :teachers, through: :teacher_student_relationships
+
   GOAL = 100
   GRADES = [
     'pre-school',
@@ -32,7 +35,7 @@ class StudentProfile < ActiveRecord::Base
     readings.count
   end
 
-  def book_list
+  def book_list_
     books.order(:title).pluck(:title)
   end
 
