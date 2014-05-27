@@ -35,7 +35,7 @@ class StudentProfile < ActiveRecord::Base
     readings.count
   end
 
-  def book_list_
+  def book_list
     books.order(:title).pluck(:title)
   end
 

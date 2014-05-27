@@ -1,6 +1,6 @@
 <h2>
   <%= t ".page_prefix" %>
-  <%= current_user.username %>
+  <%= current_profile.first_name %>
   <%= t ".page_suffix" %> 
 </h2>
 
@@ -16,6 +16,7 @@
   <p> 
     <%= t ".you_have_read_titles" %>
     <br>
+    <% binding.pry %>
     <% current_profile.book_list.each do |title| %>
       <%= title %><br>
     <% end %>

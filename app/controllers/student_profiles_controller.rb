@@ -8,6 +8,7 @@ class StudentProfilesController < ApplicationController
 
   def create
     student_user = sign_up(student_user_params)
+    binding.pry
     student_profile = student_user.profile
     student_profile.update(student_profile_params)
     redirect_to parent_profile
