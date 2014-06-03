@@ -1,5 +1,4 @@
 class TeacherProfilesController < ApplicationController
-
   def show
     @teacher_profile = current_profile
     @teacher_student_relationship = TeacherStudentRelationship.new

@@ -17,7 +17,7 @@ class TeacherStudentRelationshipsController < ApplicationController
   end
 
   private
-  
+
   def get_teacher_profile
     if current_user.profile_type == "TeacherProfile"
       current_profile
@@ -30,7 +30,7 @@ class TeacherStudentRelationshipsController < ApplicationController
 
   def find_students_by_grade
     StudentProfile.where(
-      grade_last_year: grade_last_year, 
+      grade_last_year: grade_last_year,
       at_hernandez: true
     )
   end

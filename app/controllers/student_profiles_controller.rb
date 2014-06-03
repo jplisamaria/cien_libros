@@ -1,5 +1,5 @@
 class StudentProfilesController < ApplicationController
-  before_action :require_parenthood, except: [ :show ]
+  before_action :require_parenthood, except: [:show]
 
   def new
     @parent_profile = parent_profile
@@ -17,7 +17,7 @@ class StudentProfilesController < ApplicationController
     @student = find_student_profile
     @readings = @student.readings
     if teacher_profile? || @student.child_of?(current_profile)
-      render "show"
+      render 'show'
     else
       redirect_to current_profile
     end

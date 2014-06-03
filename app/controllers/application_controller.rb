@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   helper_method :require_parenthood
 
   def teacher_profile?
-    current_profile.class.to_s =="TeacherProfile"
+    current_profile.class.to_s == 'TeacherProfile'
   end
   helper_method :teacher_profile?
 
@@ -36,5 +36,4 @@ class ApplicationController < ActionController::Base
   def parent_profile?
     current_profile.class.to_s == 'ParentProfile'
   end
-
 end
