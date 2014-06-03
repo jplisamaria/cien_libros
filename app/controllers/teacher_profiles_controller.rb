@@ -8,11 +8,7 @@ class TeacherProfilesController < ApplicationController
   private
 
   def students_by_teacher
-    student_list = []
-    teacher_student_relationships.each do |relationship|
-      student_list << find_student_profile(relationship.student_profile_id)
-    end
-    student_list
+    teacher_student_relationships.map { |relationship| find_student_profile(relationship.student_profile_id) }
   end
 
   def teacher_student_relationships

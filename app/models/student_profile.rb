@@ -42,4 +42,16 @@ class StudentProfile < ActiveRecord::Base
   def child_of?(profile)
     parent_profile_id == profile.id
   end
+
+  def teacher?
+    false
+  end
+
+  def student?
+    true
+  end
+
+  def parent?
+    false
+  end
 end

@@ -19,7 +19,7 @@ class TeacherStudentRelationshipsController < ApplicationController
   private
 
   def get_teacher_profile
-    if current_user.profile_type == "TeacherProfile"
+    if current_profile.teacher?
       current_profile
     end
   end

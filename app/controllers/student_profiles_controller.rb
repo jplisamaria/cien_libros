@@ -16,7 +16,7 @@ class StudentProfilesController < ApplicationController
   def show
     @student = find_student_profile
     @readings = @student.readings
-    if teacher_profile? || @student.child_of?(current_profile)
+    if teacher_or_parent_of_student
       render 'show'
     else
       redirect_to current_profile
@@ -45,6 +45,10 @@ class StudentProfilesController < ApplicationController
   end
 
   private
+
+  def teacher_or_parent_of_student
+    current_profile.teacher? || @student.child_of?(current_profile)
+  end
 
   def find_student_profile
     StudentProfile.find(params[:id])
