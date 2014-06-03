@@ -22,8 +22,11 @@ Rails.application.routes.draw do
     end
 
     resources :teacher_profiles, only: [:show] do
-      resource :search, only: [:new, :create]
+      resources :student_profiles, only: [:show]
     end
+
+    resources :teacher_student_relationships, only: [:new, :create]
+    resources :student_searches, only: [:create]
 
     resources :student_profiles, only: [:index, :destroy]
 

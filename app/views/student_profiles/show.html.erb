@@ -1,15 +1,17 @@
-<p>
-  <%= link_to t( ".update_student_info"),
-    edit_parent_profile_student_profile_path %>
-</p>
+<% if @student.child_of?(current_profile) %>
+  <p>
+    <%= link_to t( ".update_student_info"),
+      edit_parent_profile_student_profile_path %>
+  </p>
 
-<p>
-  <%= link_to t( ".delete_student_info"), 
-    @student,
-    method: :delete, 
-    data: { confirm: I18n.t( ".child_deletion_confirmation")}
-  %>
-</p>
+  <p>
+    <%= link_to t( ".delete_student_info"), 
+      @student,
+      method: :delete, 
+      data: { confirm: I18n.t( ".child_deletion_confirmation")}
+    %>
+  </p>
+<% end %>
 
 <p>
   <%= @student.first_name %> 

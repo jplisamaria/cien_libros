@@ -1,0 +1,16 @@
+<h2><%= t ".header_for_search_for_students" %> </h2>
+<p> <%= t ".question_what_grade_students_to_search_for" %></p>
+
+<%= t ".students_in" %>
+<%= @grade_last_year %>
+<%= t ".grade" %> <br>
+
+<%= form_for @teacher_student_relationship do |form| %>
+  <% @students_by_grade.each do |student| %>
+    <%= student.first_name %>
+    <%= student.last_name %>
+    <%= check_box_tag "student_ids[]", student.id %><br>
+  <% end %>
+  <%= form.submit %>
+<% end %>
+

@@ -18,6 +18,11 @@ class ApplicationController < ActionController::Base
   end
   helper_method :require_parenthood
 
+  def teacher_profile?
+    current_profile.class.to_s =="TeacherProfile"
+  end
+  helper_method :teacher_profile?
+
   private
 
   def set_locale
@@ -31,4 +36,5 @@ class ApplicationController < ActionController::Base
   def parent_profile?
     current_profile.class.to_s == 'ParentProfile'
   end
+
 end

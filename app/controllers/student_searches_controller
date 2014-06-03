@@ -1,0 +1,7 @@
+class StudentSearchesController < ApplicationController
+
+  def create
+
+  end
+
+end

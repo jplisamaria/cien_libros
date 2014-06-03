@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140527144811) do
+ActiveRecord::Schema.define(version: 20140602224252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,14 +69,14 @@ ActiveRecord::Schema.define(version: 20140527144811) do
   end
 
   create_table "teacher_student_relationships", force: true do |t|
-    t.integer  "TeacherProfile_id"
-    t.integer  "StudentProfile_id"
+    t.integer  "teacher_profile_id"
+    t.integer  "student_profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "teacher_student_relationships", ["StudentProfile_id"], name: "index_teacher_student_relationships_on_StudentProfile_id", using: :btree
-  add_index "teacher_student_relationships", ["TeacherProfile_id"], name: "index_teacher_student_relationships_on_TeacherProfile_id", using: :btree
+  add_index "teacher_student_relationships", ["student_profile_id"], name: "index_teacher_student_relationships_on_student_profile_id", using: :btree
+  add_index "teacher_student_relationships", ["teacher_profile_id"], name: "index_teacher_student_relationships_on_teacher_profile_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "password_digest", null: false

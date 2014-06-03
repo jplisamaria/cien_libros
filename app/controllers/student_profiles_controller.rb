@@ -1,5 +1,5 @@
 class StudentProfilesController < ApplicationController
-  before_action :require_parenthood
+  before_action :require_parenthood, except: [ :show ]
 
   def new
     @parent_profile = parent_profile
@@ -8,7 +8,6 @@ class StudentProfilesController < ApplicationController
 
   def create
     student_user = sign_up(student_user_params)
-    binding.pry
     student_profile = student_user.profile
     student_profile.update(student_profile_params)
     redirect_to parent_profile
@@ -17,8 +16,10 @@ class StudentProfilesController < ApplicationController
   def show
     @student = find_student_profile
     @readings = @student.readings
-    unless @student.child_of?(current_profile)
-      redirect_to parent_profile
+    if teacher_profile? || @student.child_of?(current_profile)
+      render "show"
+    else
+      redirect_to current_profile
     end
   end
 
