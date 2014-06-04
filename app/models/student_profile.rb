@@ -56,6 +56,6 @@ class StudentProfile < ActiveRecord::Base
   end
 
   def at_hernandez?
-    self.at_hernandez
+    at_hernandez
   end
 end
