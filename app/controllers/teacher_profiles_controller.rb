@@ -8,11 +8,13 @@ class TeacherProfilesController < ApplicationController
   private
 
   def students_by_teacher
-    teacher_student_relationships.map { |relationship| find_student_profile(relationship.student_profile_id) }
+    teacher_student_relationships.map {
+      |relationship| find_student_profile(relationship.student_profile_id)
+    }
   end
 
   def teacher_student_relationships
-    TeacherStudentRelationship.where(teacher_profile_id: current_profile.id)
+    current_profile.teacher_student_relationships
   end
 
   def find_student_profile(id)
