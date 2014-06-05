@@ -15,4 +15,8 @@ class TeacherProfile < ActiveRecord::Base
   def parent?
     false
   end
+
+  def at_hernandez?
+    true
+  end
 end

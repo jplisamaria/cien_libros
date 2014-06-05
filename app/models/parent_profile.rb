@@ -13,4 +13,8 @@ class ParentProfile < ActiveRecord::Base
   def parent?
     true
   end
+
+  def at_hernandez?
+    student_profiles.pluck(:at_hernandez).include?(true)
+  end
 end
