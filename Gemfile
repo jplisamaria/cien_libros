@@ -11,6 +11,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'monban'
 gem 'simple_form'
+gem 'high_voltage', '~> 2.1.0'
 
 group :development do
   gem 'spring'
